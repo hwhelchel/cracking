@@ -6,7 +6,7 @@ class SimpleLinkedList
     @head = node unless node.nil?
   end
 
-  def append_to_tail(node)
+  def append(node)
     @head = node if head.nil?
     
     current_node = head

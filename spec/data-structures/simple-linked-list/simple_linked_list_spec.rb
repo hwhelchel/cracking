@@ -12,11 +12,11 @@ describe SimpleLinkedList do
     end
   end
 
-  describe '#append_to_tail' do
+  describe '#append' do
     context 'with set head' do
       it "updates the last node's next value" do
         expect{
-          linked_list.append_to_tail(node)
+          linked_list.append(node)
           }.to change { linked_list.head.next }.to node
       end
     end
@@ -24,7 +24,7 @@ describe SimpleLinkedList do
     context 'without set head' do
       it 'sets the node as the head' do
         expect{
-          headless_linked_list.append_to_tail(node)
+          headless_linked_list.append(node)
         }.to change { headless_linked_list.head }.to node
       end
     end
@@ -40,7 +40,7 @@ describe SimpleLinkedList do
 
     context 'node to be deleted is not the head' do
       it 'removes the node' do
-        linked_list.append_to_tail(node)
+        linked_list.append(node)
         linked_list.delete(node)
         expect(linked_list.head.next).to be_nil
       end
