@@ -30,4 +30,22 @@ describe SimpleLinkedList do
     end
   end
 
+  describe '#delete' do
+    context 'node to be deleted is the head' do
+      it 'removes the head' do
+        linked_list.delete(head)
+        expect(linked_list.head).to be_nil
+      end
+    end
+
+    context 'node to be deleted is not the head' do
+      it 'removes the node' do
+        linked_list.append_to_tail(node)
+        linked_list.delete(node)
+        expect(linked_list.head.next).to be_nil
+      end
+    end
+
+  end
+
 end
